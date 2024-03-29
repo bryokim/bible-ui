@@ -6,6 +6,10 @@ export default defineNuxtConfig({
 
   modules: ["@nuxt/ui", "@nuxtjs/google-fonts"],
 
+  ui: {
+    icons: ['bi']
+  },
+
   googleFonts: {
     families: {
       "Josefin+Sans": true,

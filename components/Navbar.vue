@@ -17,8 +17,15 @@ const isDark = computed({
     <div class="logo text-3xl font-bold antialiased">
       <ULink to="/">Bible-UI</ULink>
     </div>
-    <div class="flex justify-end">
-      <div>
+    <div class="flex justify-end items-center">
+      <ULink
+        to="https://github.com/bryokim/bible-ui"
+        target="_blank"
+        class="flex items-center me-6"
+      >
+        <UIcon name="i-bi-github" />
+      </ULink>
+      <div class="place-content-center">
         <ClientOnly>
           <UButton
             :icon="
