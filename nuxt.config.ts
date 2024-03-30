@@ -2,12 +2,26 @@
 export default defineNuxtConfig({
   $development: {
     devtools: { enabled: true },
+
+    runtimeConfig: {
+      public: {
+        baseURL: process.env.BASE_URL || "http://localhost:8000",
+      },
+    },
+  },
+
+  $production: {
+    runtimeConfig: {
+      public: {
+        baseURL: process.env.BASE_URL,
+      },
+    },
   },
 
   modules: ["@nuxt/ui", "@nuxtjs/google-fonts"],
 
   ui: {
-    icons: ['bi']
+    icons: ["bi"],
   },
 
   googleFonts: {
@@ -19,7 +33,7 @@ export default defineNuxtConfig({
         ital: "199..700",
       },
       Cinzel: [500],
-      "Josefin Slab": [400]
+      "Josefin Slab": [400],
     },
   },
 });
