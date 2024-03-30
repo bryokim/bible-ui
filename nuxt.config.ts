@@ -36,4 +36,12 @@ export default defineNuxtConfig({
       "Josefin Slab": [400],
     },
   },
+
+  app: {
+    head: {
+      link: [
+        { rel: "icon", type: "image/svg+xml", href: "/favicon-color.svg" },
+      ],
+    },
+  },
 });
