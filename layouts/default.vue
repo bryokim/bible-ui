@@ -3,7 +3,9 @@
     class="min-h-dvh bg-white dark:bg-gray-900 text-black dark:text-white bg-no-repeat default-font text-xl"
   >
     <Navbar />
-    <slot class="flex-1" />
+    <UContainer>
+      <slot class="flex-1" />
+    </UContainer>
 
     <UNotifications />
   </div>

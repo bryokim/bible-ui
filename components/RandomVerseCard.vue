@@ -57,5 +57,6 @@ onBeforeMount(async () => {
       </div>
     </template>
   </VerseCard>
+  <slot name="info"></slot>
   <UDivider></UDivider>
 </template>
