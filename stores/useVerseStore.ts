@@ -48,7 +48,7 @@ export const useVerseStore = defineStore(
         throw new HTTPError(value);
       }
 
-      await $fetch(endpoint, {
+      return await $fetch(endpoint, {
         method: "GET",
         baseURL: baseURL,
         query: {
