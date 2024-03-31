@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   title: string;
+  to: string;
   description: string | undefined;
 }>();
 </script>
@@ -9,7 +10,7 @@ defineProps<{
   <section>
     <div class="group/title mb-2">
       <ULink
-        to="/bible/random-verse"
+        :to="to"
         active-class="text-primary"
         inactive-class="text-sky-500 hover:text-emerald-500"
         class="flex items-center relative font-bold text-2xl underline ms-3"

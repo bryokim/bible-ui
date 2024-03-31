@@ -1,6 +1,7 @@
 <template>
   <FeatureSection
     title="Random Verses"
+    to="/bible/random-verse"
     description="Getting a random verse from the Bible."
   >
     <template #example>
