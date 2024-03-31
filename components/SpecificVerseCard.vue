@@ -13,28 +13,28 @@ const props = defineProps<{
 const config = useRuntimeConfig();
 
 const colorMode = useColorMode();
-const verseResponse = ref();
+const verseResponse = ref<VerseResponseType>();
 const loading = ref(false);
 const error = ref();
 
+const verseStore = useVerseStore();
+
 async function getVerse() {
   loading.value = true;
-  await $fetch(props.endpoint, {
-    method: props.method,
-    baseURL: config.public.baseURL,
-    query: {
+
+  await verseStore
+    .fetchVerse(props.endpoint, config.public.baseURL, {
       book: props.book || "Genesis",
       chapter: props.chapter || 1,
       verse: props.verse || "1",
       book_group: props.book_group,
       bible_version: props.bible_version,
-    },
-  })
-    .then((data) => {
-      verseResponse.value = data;
-      error.value = undefined;
     })
-    .catch((e) => {
+    .then((data: VerseResponseType) => {
+      error.value = undefined;
+      verseResponse.value = data;
+    })
+    .catch((e: typeof HTTPError) => {
       error.value = e;
     })
     .finally(() => {
@@ -76,8 +76,8 @@ onBeforeMount(async () => {
     <template #footer>
       <div v-if="error">
         <UAlert
-          :title="error?.status"
-          :description="error?.data.detail"
+          :title="error.statusCode"
+          :description="error.detail"
           color="red"
           variant="subtle"
           icon="i-heroicons-exclamation-circle-solid"

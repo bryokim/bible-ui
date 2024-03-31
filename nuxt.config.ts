@@ -18,7 +18,12 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/ui", "@nuxtjs/google-fonts"],
+  modules: [
+    "@nuxt/ui",
+    "@nuxtjs/google-fonts",
+    "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
+  ],
 
   ui: {
     icons: ["bi"],

@@ -12,11 +12,14 @@
   "dependencies": {
     "@iconify-json/bi": "^1.1.23",
     "@nuxt/ui": "^2.15.0",
+    "@pinia/nuxt": "^0.5.1",
     "nuxt": "^3.11.1",
+    "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "@nuxtjs/google-fonts": "^3.2.0"
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0"
   }
 }
