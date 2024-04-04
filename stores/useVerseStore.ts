@@ -106,8 +106,7 @@ export const useVerseStore = defineStore(
         // If not, don't return stored daily verse but fetch a new one.
         if (
           value.day &&
-          moment(value.day, "dddd-MMM-D-YYYY").date ==
-            moment().startOf("day").date
+          moment(value.day, "dddd-MMM-D-YYYY").isSame(moment().startOf("day"))
         ) {
           // The stored daily verse is valid
           if (!value.error) return verses.value[key];
