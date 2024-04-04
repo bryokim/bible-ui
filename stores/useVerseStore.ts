@@ -1,3 +1,5 @@
+import moment from "moment";
+
 /**
  * Implements the verses store for fetching and storing requested
  * verses.
@@ -77,7 +79,69 @@ export const useVerseStore = defineStore(
         });
     }
 
-    return { verses, fetchVerse };
+    /**
+     * Fetches daily verse. If verse has been fetched before,
+     * the stored value is returned.
+     *
+     * The stored daily verse must be valid for that day to be returned.
+     *
+     * @param endpoint the api endpoint to request from
+     * @param baseURL the api's base URL
+     * @param queryParams query parameters passed to the request
+     * @returns the daily verse
+     */
+    async function fetchDailyVerse(
+      endpoint: string,
+      baseURL: string,
+      queryParams: {
+        bible_version?: string;
+      }
+    ) {
+      const key: string = `DAILY_VERSE_${queryParams.bible_version || "NIV"}`;
+
+      if (verses.value[key]) {
+        const value = verses.value[key];
+
+        // stored daily verse's day is same as the start of the day
+        // If not, don't return stored daily verse but fetch a new one.
+        if (
+          value.day &&
+          moment(value.day, "dddd-MMM-D-YYYY").date ==
+            moment().startOf("day").date
+        ) {
+          // The stored daily verse is valid
+          if (!value.error) return verses.value[key];
+
+          // Don't throw error but fetch the daily verse again.
+        }
+      }
+
+      return await $fetch(endpoint, {
+        method: "GET",
+        baseURL: baseURL,
+        query: {
+          bible_version: queryParams.bible_version,
+        },
+      })
+        .then((data) => {
+          verses.value[key] = data;
+          return verses.value[key];
+        })
+        .catch((e: any) => {
+          // Save only errors that are caused by client
+          if (e.status.toString().startsWith("4")) {
+            verses.value[key] = {
+              error: true,
+              message: e.message,
+              data: e.data,
+              status: e.status.toString(),
+            };
+          }
+          throw new HTTPError(e);
+        });
+    }
+
+    return { verses, fetchVerse, fetchDailyVerse };
   },
   {
     persist: {
