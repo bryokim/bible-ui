@@ -6,4 +6,7 @@ export interface VerseResponseType {
   verse_text: string[];
   book_group: string;
   bible_version: string;
+
+  // For the daily verse
+  day?: string;
 }

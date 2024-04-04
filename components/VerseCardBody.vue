@@ -1,13 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  verseResponse:
-    | {
-        reference: string;
-        verse_text: string[];
-        book_group: string;
-        bible_version: string;
-      }
-    | undefined;
+  verseResponse: VerseResponseType | undefined;
 }>();
 
 const colorMode = useColorMode();
@@ -21,12 +14,20 @@ const colorMode = useColorMode();
       </div>
       <div class="flex justify-end">
         <UBadge
-          v-if="verseResponse.book_group !== 'Any'"
+          v-if="verseResponse.book_group && verseResponse.book_group !== 'Any'"
           size="sm"
           color="sky"
           :variant="colorMode.preference == 'dark' ? 'soft' : 'solid'"
           class="me-3"
           >{{ verseResponse.book_group }}
+        </UBadge>
+        <UBadge
+          v-if="verseResponse.day"
+          size="sm"
+          color="sky"
+          :variant="colorMode.preference == 'dark' ? 'soft' : 'solid'"
+          class="me-3"
+          >{{ verseResponse.day }}
         </UBadge>
         <UBadge
           size="sm"

@@ -1,13 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  verseResponse:
-    | {
-        reference: string;
-        verse_text: string[];
-        book_group: string;
-        bible_version: string;
-      }
-    | undefined;
+  verseResponse: VerseResponseType | undefined;
   endpoint: string;
   method: "GET";
   description: string | undefined;
