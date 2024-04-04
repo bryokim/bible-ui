@@ -25,6 +25,8 @@ export default defineNuxtConfig({
     "@pinia-plugin-persistedstate/nuxt",
   ],
 
+  plugins: ["~/plugins/vue-countdown"],
+
   ui: {
     icons: ["bi"],
   },

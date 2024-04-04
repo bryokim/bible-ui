@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@chenfengyuan/vue-countdown": "^2.1.2",
     "@iconify-json/bi": "^1.1.23",
     "@nuxt/ui": "^2.15.0",
     "@pinia/nuxt": "^0.5.1",
