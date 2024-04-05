@@ -10,7 +10,7 @@ Clone [this](https://github.com/bryokim/bible-ui) repository.
 git clone https://github.com/bryokim/bible-ui.git && cd bible-ui
 ```
 
-Install the dependencies:
+#### Install the dependencies
 
 ```bash
 # npm
@@ -25,6 +25,35 @@ yarn install
 # bun
 bun install
 ```
+
+#### Env variable
+
+Set `BASE_URL` env variable to the URL of the api. Get the URL after [`starting the api`](#starting-the-api).
+
+- Directly on terminal
+
+```bash
+# Use url generated when starting api
+# If <PORT> is not set when starting the api, set to this URL.
+export BASE_URL='http://localhost:8000'
+```
+
+- Using a .env file
+
+You can use a `.env` file.
+
+```bash
+# .env
+export BASE_URL='http://localhost:8000'
+```
+
+then
+
+```bash
+source .env
+```
+
+#### Starting development server
 
 Start the development server on `http://localhost:3000`:
 
@@ -110,6 +139,8 @@ poetry run uvicorn src.main:app --reload --port <PORT>
 # replace <PORT> with a valid available port
 uvicorn src.main:app --reload --port <PORT>
 ```
+
+The URL where the API is running should be used to set [`BASE_URL`](#env-variable) in bible-ui.
 
 > You can follow the documentation on [bible-api](https://github.com/bryokim/bible-api) for detailed setup.
 
