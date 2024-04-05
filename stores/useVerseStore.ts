@@ -109,10 +109,11 @@ export const useVerseStore = defineStore(
           moment(value.day, "dddd-MMM-D-YYYY").isSame(moment().startOf("day"))
         ) {
           // The stored daily verse is valid
-          if (!value.error) return verses.value[key];
-
-          // Don't throw error but fetch the daily verse again.
+          return value;
         }
+
+        // throw error if value is an error
+        if (value.error) throw new HTTPError(value);
       }
 
       return await $fetch(endpoint, {
