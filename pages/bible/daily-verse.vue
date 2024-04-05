@@ -28,5 +28,11 @@
       bible_version="KJV"
       description="Get daily verse using King James Version."
     />
+    <DailyVerseCard
+      method="GET"
+      endpoint="/bible/daily-verse"
+      bible_version="invalid_version"
+      description="Providing an invalid version throws a 422 error"
+    />
   </div>
 </template>
