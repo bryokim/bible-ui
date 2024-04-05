@@ -11,7 +11,7 @@ const countdown = ref(null);
  * Reset timeTillTomorrow and restart the countdown.
  */
 function onCountdownEnd() {
-  timeTillTomorrow.value = moment().endOf("day").diff(moment(), "seconds");
+  timeTillTomorrow.value = moment().endOf("day").diff(moment());
 
   // Restart the countdown
   // @ts-expect-error
