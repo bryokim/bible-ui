@@ -30,9 +30,9 @@ async function getVerse() {
       book_group: props.book_group,
       bible_version: props.bible_version,
     })
-    .then((data: VerseResponseType) => {
+    .then((data: VerseResponseType | void) => {
       error.value = undefined;
-      verseResponse.value = data;
+      if (data) verseResponse.value = data;
     })
     .catch((e: typeof HTTPError) => {
       error.value = e;
