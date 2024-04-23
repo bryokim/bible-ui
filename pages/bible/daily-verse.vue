@@ -13,7 +13,6 @@
     <DailyVerseCard
       method="GET"
       endpoint="/bible/daily-verse"
-      bible_version="KJV"
       description="Get daily verse. Default version (NIV) is used."
     />
     <DailyVerseCard
