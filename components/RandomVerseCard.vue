@@ -3,6 +3,7 @@ const props = defineProps<{
   endpoint: string;
   method: "GET";
   description: string | undefined;
+  last?: boolean;
 }>();
 
 const config = useRuntimeConfig();
@@ -58,5 +59,5 @@ onBeforeMount(async () => {
     </template>
   </VerseCard>
   <slot name="info"></slot>
-  <UDivider></UDivider>
+  <UDivider v-if="!last"></UDivider>
 </template>

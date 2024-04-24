@@ -24,6 +24,7 @@
       method="GET"
       endpoint="/bible/random-verse?bible_version=KJV&book_group=Gospels&verse_range=2"
       description="Get two consecutive random verses from Gospel books with King James Version"
+      last
     />
   </div>
 </template>
