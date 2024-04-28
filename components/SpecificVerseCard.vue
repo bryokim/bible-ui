@@ -8,6 +8,7 @@ const props = defineProps<{
   book_group?: string;
   bible_version?: string;
   description?: string;
+  border_bottom?: boolean;
 }>();
 
 const config = useRuntimeConfig();
@@ -100,5 +101,5 @@ onBeforeMount(async () => {
     </template>
   </VerseCard>
   <slot name="info"></slot>
-  <UDivider></UDivider>
+  <UDivider v-if="border_bottom"></UDivider>
 </template>

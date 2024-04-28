@@ -10,6 +10,7 @@
       method="GET"
       endpoint="/bible/verse"
       description="Get Genesis 1:1. Default version (NIV) is used."
+      border_bottom
     />
 
     <SpecificVerseCard
@@ -18,6 +19,7 @@
       verse="1-2"
       bible_version="KJV"
       description="Get Genesis 1:1-2 using King James version"
+      border_bottom
     />
 
     <SpecificVerseCard
@@ -28,6 +30,7 @@
       verse="1-3"
       bible_version="KJV"
       description="Get Philemon 1:1-3 using King James version"
+      border_bottom
     />
 
     <SpecificVerseCard

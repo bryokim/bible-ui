@@ -14,18 +14,21 @@
       method="GET"
       endpoint="/bible/daily-verse"
       description="Get daily verse. Default version (NIV) is used."
+      border_bottom
     />
     <DailyVerseCard
       method="GET"
       endpoint="/bible/daily-verse"
       bible_version="ASV"
       description="Get daily verse using American Standard Version."
+      border_bottom
     />
     <DailyVerseCard
       method="GET"
       endpoint="/bible/daily-verse"
       bible_version="KJV"
       description="Get daily verse using King James Version."
+      border_bottom
     />
     <DailyVerseCard
       method="GET"
