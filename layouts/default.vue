@@ -7,6 +7,7 @@
       <slot class="flex-1" />
     </UContainer>
 
+    <Footer />
     <UNotifications />
   </div>
 </template>
