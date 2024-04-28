@@ -1,13 +1,14 @@
 <script setup lang="ts">
 const props = defineProps<{
-  endpoint: string;
   method: "GET";
   bible_version?: string;
   description?: string;
+  endpoint?: string;
   border_bottom?: boolean;
 }>();
 
 const config = useRuntimeConfig();
+const endpoint = props.endpoint || "/bible/daily-verse";
 
 const colorMode = useColorMode();
 const verseResponse = ref<VerseResponseType>();
@@ -20,7 +21,7 @@ async function getDailyVerse() {
   loading.value = true;
 
   await verseStore
-    .fetchDailyVerse(props.endpoint, config.public.baseURL, {
+    .fetchDailyVerse(endpoint, config.public.baseURL, {
       bible_version: props.bible_version,
     })
     .then((data: VerseResponseType | void) => {
@@ -36,7 +37,7 @@ async function getDailyVerse() {
 }
 
 function parseEndpoint() {
-  const parsedEndpoint = [props.endpoint];
+  const parsedEndpoint = [endpoint];
 
   if (props.bible_version)
     parsedEndpoint.push(`&bible_version=${props.bible_version}`);

@@ -1,20 +1,55 @@
 <script setup lang="ts">
 const props = defineProps<{
-  endpoint: string;
   method: "GET";
   description: string | undefined;
+  bible_version?: string;
+  book_group?: string;
+  verse_range?: number;
+  endpoint?: string;
   border_bottom?: boolean;
 }>();
 
 const config = useRuntimeConfig();
+const endpoint = props.endpoint || "/bible/random-verse";
 
 const colorMode = useColorMode();
 const randomVerse = ref();
 const loading = ref(false);
 
+function parseEndpoint() {
+  const parsedEndpoint = [endpoint];
+
+  if (props.book_group) parsedEndpoint.push(`&book_group=${props.book_group}`);
+
+  if (props.bible_version)
+    parsedEndpoint.push(`&bible_version=${props.bible_version}`);
+
+  if (props.verse_range)
+    parsedEndpoint.push(`&verse_range=${props.verse_range}`);
+
+  if (parsedEndpoint.length > 1) {
+    // Add trailing to the endpoint if there are query parameters
+    parsedEndpoint[0] = endpoint.endsWith("?") ? endpoint : endpoint + "?";
+
+    // Remove & from the first query parameter
+    parsedEndpoint[1] = parsedEndpoint[1].startsWith("&")
+      ? parsedEndpoint[1].slice(1)
+      : parsedEndpoint[1];
+  } else {
+    // Remove ? from the endpoint if there are no query parameters
+    parsedEndpoint[0] = endpoint.endsWith("?")
+      ? endpoint.slice(0, -1)
+      : endpoint;
+  }
+
+  return parsedEndpoint.join("");
+}
+
+const parsedEndpoint = parseEndpoint();
+
 async function getRandomVerse() {
   loading.value = true;
-  await $fetch(props.endpoint, {
+  await $fetch(parsedEndpoint, {
     method: props.method,
     baseURL: config.public.baseURL,
   })
@@ -36,7 +71,7 @@ onBeforeMount(async () => {
 
 <template>
   <VerseCard
-    :endpoint="endpoint"
+    :endpoint="parsedEndpoint"
     :method="method"
     :verseResponse="randomVerse"
     :description="description"

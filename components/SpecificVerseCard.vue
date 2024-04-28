@@ -1,17 +1,18 @@
 <script setup lang="ts">
 const props = defineProps<{
-  endpoint: string;
   method: "GET";
   book?: string;
   chapter?: number;
   verse?: string;
   book_group?: string;
   bible_version?: string;
+  endpoint?: string;
   description?: string;
   border_bottom?: boolean;
 }>();
 
 const config = useRuntimeConfig();
+const endpoint = props.endpoint || "/bible/verse";
 
 const colorMode = useColorMode();
 const verseResponse = ref<VerseResponseType>();
@@ -24,7 +25,7 @@ async function getVerse() {
   loading.value = true;
 
   await verseStore
-    .fetchVerse(props.endpoint, config.public.baseURL, {
+    .fetchVerse(endpoint, config.public.baseURL, {
       book: props.book || "Genesis",
       chapter: props.chapter || 1,
       verse: props.verse || "1",
@@ -45,7 +46,7 @@ async function getVerse() {
 
 function parseEndpoint() {
   const parsedEndpoint = [
-    props.endpoint,
+    endpoint,
     `?book=${props.book || "Genesis"}`,
     `&chapter=${props.chapter || 1}`,
     `&verse=${props.verse || "1"}`,

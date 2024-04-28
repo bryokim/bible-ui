@@ -7,7 +7,6 @@
     <template #example>
       <RandomVerseCard
         method="GET"
-        endpoint="/bible/random-verse"
         description="Get random verse from whole Bible. Default version (NIV) is used."
       >
         <template #info>
