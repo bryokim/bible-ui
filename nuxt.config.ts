@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     runtimeConfig: {
       public: {
         baseURL: process.env.BASE_URL,
+        endpointPrefix: "/api/v1/bible",
       },
     },
   },
