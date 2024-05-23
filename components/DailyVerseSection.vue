@@ -6,7 +6,6 @@
     >
       <template #example>
         <DailyVerseCard
-          method="GET"
           description="Get daily verse. Default version (NIV) is used."
         >
           <template #info>

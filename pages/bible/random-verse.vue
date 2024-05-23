@@ -6,25 +6,21 @@
       Random Verses
     </p>
     <RandomVerseCard
-      method="GET"
       description="Get random verse from whole Bible. Default version (NIV) is used."
       border_bottom
     />
     <RandomVerseCard
-      method="GET"
       bible_version="KJV"
       description="Get random verse from whole Bible using King James version"
       border_bottom
     />
     <RandomVerseCard
-      method="GET"
       bible_version="KJV"
       book_group="Law"
       description="Get random verse Law books with King James Version"
       border_bottom
     />
     <RandomVerseCard
-      method="GET"
       bible_version="ASV"
       book_group="Gospels"
       :verse_range="2"

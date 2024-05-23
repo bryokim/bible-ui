@@ -6,7 +6,6 @@
   >
     <template #example>
       <SpecificVerseCard
-        method="GET"
         description="Get Genesis 1:1. Default version (NIV) is used."
       >
         <template #info>

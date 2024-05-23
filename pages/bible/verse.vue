@@ -7,13 +7,11 @@
     </p>
 
     <SpecificVerseCard
-      method="GET"
       description="Get Genesis 1:1. Default version (NIV) is used."
       border_bottom
     />
 
     <SpecificVerseCard
-      method="GET"
       verse="1-2"
       bible_version="KJV"
       description="Get Genesis 1:1-2 using King James version"
@@ -21,7 +19,6 @@
     />
 
     <SpecificVerseCard
-      method="GET"
       book="Philemon"
       book_group="Paul Epistles"
       verse="1-3"
@@ -31,7 +28,6 @@
     />
 
     <SpecificVerseCard
-      method="GET"
       verse="1-2"
       book_group="History"
       bible_version="KJV"

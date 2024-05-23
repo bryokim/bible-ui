@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const props = defineProps<{
-  method: "GET";
   bible_version?: string;
   description?: string;
   border_bottom?: boolean;
@@ -8,6 +7,7 @@ const props = defineProps<{
 
 const config = useRuntimeConfig();
 const endpoint = `${config.public.endpointPrefix}/daily-verse`;
+const method = "GET";
 
 const colorMode = useColorMode();
 const verseResponse = ref<VerseResponseType>();

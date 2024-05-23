@@ -11,24 +11,20 @@
     </div>
 
     <DailyVerseCard
-      method="GET"
       description="Get daily verse. Default version (NIV) is used."
       border_bottom
     />
     <DailyVerseCard
-      method="GET"
       bible_version="ASV"
       description="Get daily verse using American Standard Version."
       border_bottom
     />
     <DailyVerseCard
-      method="GET"
       bible_version="KJV"
       description="Get daily verse using King James Version."
       border_bottom
     />
     <DailyVerseCard
-      method="GET"
       bible_version="invalid_version"
       description="Providing an invalid version throws a 422 error"
     />

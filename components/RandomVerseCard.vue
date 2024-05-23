@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const props = defineProps<{
-  method: "GET";
   description: string | undefined;
   bible_version?: string;
   book_group?: string;
@@ -10,6 +9,7 @@ const props = defineProps<{
 
 const config = useRuntimeConfig();
 const endpoint = `${config.public.endpointPrefix}/random-verse`;
+const method = "GET";
 
 const colorMode = useColorMode();
 const randomVerse = ref();
@@ -49,7 +49,7 @@ const parsedEndpoint = parseEndpoint();
 async function getRandomVerse() {
   loading.value = true;
   await $fetch(parsedEndpoint, {
-    method: props.method,
+    method: method,
     baseURL: config.public.baseURL,
   })
     .then((data) => {

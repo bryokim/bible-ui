@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const props = defineProps<{
-  method: "GET";
   book?: string;
   chapter?: number;
   verse?: string;
@@ -12,6 +11,7 @@ const props = defineProps<{
 
 const config = useRuntimeConfig();
 const endpoint = `${config.public.endpointPrefix}/verse`;
+const method = "GET";
 
 const colorMode = useColorMode();
 const verseResponse = ref<VerseResponseType>();
