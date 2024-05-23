@@ -7,7 +7,6 @@
       <template #example>
         <DailyVerseCard
           method="GET"
-          endpoint="/bible/daily-verse"
           description="Get daily verse. Default version (NIV) is used."
         >
           <template #info>

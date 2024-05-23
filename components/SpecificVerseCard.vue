@@ -6,13 +6,12 @@ const props = defineProps<{
   verse?: string;
   book_group?: string;
   bible_version?: string;
-  endpoint?: string;
   description?: string;
   border_bottom?: boolean;
 }>();
 
 const config = useRuntimeConfig();
-const endpoint = props.endpoint || "/bible/verse";
+const endpoint = `${config.public.endpointPrefix}/verse`;
 
 const colorMode = useColorMode();
 const verseResponse = ref<VerseResponseType>();

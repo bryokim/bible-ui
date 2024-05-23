@@ -3,12 +3,11 @@ const props = defineProps<{
   method: "GET";
   bible_version?: string;
   description?: string;
-  endpoint?: string;
   border_bottom?: boolean;
 }>();
 
 const config = useRuntimeConfig();
-const endpoint = props.endpoint || "/bible/daily-verse";
+const endpoint = `${config.public.endpointPrefix}/daily-verse`;
 
 const colorMode = useColorMode();
 const verseResponse = ref<VerseResponseType>();

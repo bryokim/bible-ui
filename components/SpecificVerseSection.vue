@@ -7,7 +7,6 @@
     <template #example>
       <SpecificVerseCard
         method="GET"
-        endpoint="/bible/verse"
         description="Get Genesis 1:1. Default version (NIV) is used."
       >
         <template #info>

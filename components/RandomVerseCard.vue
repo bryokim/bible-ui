@@ -5,12 +5,11 @@ const props = defineProps<{
   bible_version?: string;
   book_group?: string;
   verse_range?: number;
-  endpoint?: string;
   border_bottom?: boolean;
 }>();
 
 const config = useRuntimeConfig();
-const endpoint = props.endpoint || "/bible/random-verse";
+const endpoint = `${config.public.endpointPrefix}/random-verse`;
 
 const colorMode = useColorMode();
 const randomVerse = ref();
