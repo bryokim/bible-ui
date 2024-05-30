@@ -4,6 +4,7 @@ defineProps<{
   endpoint: string;
   method: "GET";
   description: string | undefined;
+  apiVersion?: "V1" | "V2";
 }>();
 </script>
 
@@ -25,6 +26,7 @@ defineProps<{
         :endpoint="endpoint"
         :method="method"
         :description="description"
+        :apiVersion="apiVersion || 'V1'"
       />
     </template>
 

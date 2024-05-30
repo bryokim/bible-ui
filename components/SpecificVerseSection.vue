@@ -7,6 +7,10 @@
     <template #example>
       <SpecificVerseCard
         description="Get Genesis 1:1. Default version (NIV) is used."
+      />
+      <V2SpecificVerseCard
+        description="Get Genesis 1:1. Default version (NIV) is used.
+        V2 of the api is used."
       >
         <template #info>
           <ClientOnly>
@@ -22,7 +26,7 @@
             />
           </ClientOnly>
         </template>
-      </SpecificVerseCard>
+      </V2SpecificVerseCard>
     </template>
   </FeatureSection>
 </template>

@@ -7,6 +7,7 @@ export default defineNuxtConfig({
       public: {
         baseURL: process.env.BASE_URL || "http://localhost:8000",
         endpointPrefix: "/api/v1/bible",
+        endpointPrefixV2: "/api/v2/bible",
       },
     },
   },
@@ -16,6 +17,7 @@ export default defineNuxtConfig({
       public: {
         baseURL: process.env.BASE_URL,
         endpointPrefix: "/api/v1/bible",
+        endpointPrefixV2: "/api/v2/bible",
       },
     },
   },

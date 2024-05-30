@@ -60,6 +60,46 @@ export const useVerseStore = defineStore(
     }
 
     /**
+     * Fetches a verse and adds it to the verses which are stored in the local
+     * storage. If verse has been fetched before, the stored value is returned.
+     * 
+     * Uses the V2 of the API.
+     *
+     * Errors are also saved corresponding to the request that caused the error.
+     * The error is raised again if the same path is requested.
+     *
+     * @param endpoint the api endpoint to request from
+     * @param baseURL the api's base URL
+     * @param queryParams query parameters passed to the request
+     * @returns the fetched verse
+     */
+    async function fetchVerseV2(
+      endpoint: string,
+      baseURL: string,
+      queryParams: {
+        book_group?: string;
+        bible_version?: string;
+      }
+    ): Promise<VerseResponseType | void> {
+      const key: string = `${endpoint}_${queryParams.book_group || "Any"}_${
+        queryParams.bible_version || "NIV"
+      }`;
+
+      if (verses.value[key]) {
+        const value = verses.value[key];
+
+        if (!value.error) return verses.value[key];
+
+        throw new HTTPError(value);
+      }
+
+      return await _fetch(key, endpoint, baseURL, {
+        book_group: queryParams.book_group,
+        bible_version: queryParams.bible_version,
+      });
+    }
+
+    /**
      * Fetches daily verse. If verse has been fetched before,
      * the stored value is returned.
      *
@@ -142,7 +182,7 @@ export const useVerseStore = defineStore(
         });
     }
 
-    return { verses, fetchVerse, fetchDailyVerse };
+    return { verses, fetchVerse, fetchDailyVerse, fetchVerseV2 };
   },
   {
     persist: {
