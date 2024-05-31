@@ -5,7 +5,7 @@
     description="Getting a specific verse from the Bible."
   >
     <template #example>
-      <SpecificVerseCard
+      <V1SpecificVerseCard
         description="Get Genesis 1:1. Default version (NIV) is used."
       />
       <V2SpecificVerseCard

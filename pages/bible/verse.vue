@@ -84,19 +84,19 @@ const queryParametersV2 = parameters.slice(3);
 
           <UDivider />
 
-          <SpecificVerseCard
+          <V1SpecificVerseCard
             description="Get Genesis 1:1. Default version (NIV) is used."
             border_bottom
           />
 
-          <SpecificVerseCard
+          <V1SpecificVerseCard
             verse="1-2"
             bible_version="KJV"
             description="Get Genesis 1:1-2 using King James version"
             border_bottom
           />
 
-          <SpecificVerseCard
+          <V1SpecificVerseCard
             book="Philemon"
             book_group="Paul Epistles"
             verse="1-3"
@@ -105,7 +105,7 @@ const queryParametersV2 = parameters.slice(3);
             border_bottom
           />
 
-          <SpecificVerseCard
+          <V1SpecificVerseCard
             verse="1-2"
             book_group="History"
             bible_version="KJV"
