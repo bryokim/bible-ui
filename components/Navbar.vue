@@ -19,6 +19,13 @@ const isDark = computed({
     </div>
     <div class="flex justify-end items-center">
       <ULink
+        to="/playground"
+        class="flex items-center me-5 md:me-10 text-base hover:text-green-500 hover:underline underline-offset-2"
+        active-class="text-sky-600"
+      >
+        playground
+      </ULink>
+      <ULink
         to="https://github.com/bryokim/bible-ui"
         target="_blank"
         class="flex items-center me-6"
