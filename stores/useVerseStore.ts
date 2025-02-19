@@ -34,7 +34,7 @@ export const useVerseStore = defineStore(
         verse?: string;
         book_group?: string;
         bible_version?: string;
-      }
+      },
     ): Promise<VerseResponseType | void> {
       const key: string = `${queryParams.book || "Genesis"}_${
         queryParams.chapter || 1
@@ -62,7 +62,7 @@ export const useVerseStore = defineStore(
     /**
      * Fetches a verse and adds it to the verses which are stored in the local
      * storage. If verse has been fetched before, the stored value is returned.
-     * 
+     *
      * Uses the V2 of the API.
      *
      * Errors are also saved corresponding to the request that caused the error.
@@ -79,7 +79,7 @@ export const useVerseStore = defineStore(
       queryParams: {
         book_group?: string;
         bible_version?: string;
-      }
+      },
     ): Promise<VerseResponseType | void> {
       const key: string = `${endpoint}_${queryParams.book_group || "Any"}_${
         queryParams.bible_version || "NIV"
@@ -115,7 +115,7 @@ export const useVerseStore = defineStore(
       baseURL: string,
       queryParams: {
         bible_version?: string;
-      }
+      },
     ): Promise<VerseResponseType | void> {
       const key: string = `DAILY_VERSE_${queryParams.bible_version || "NIV"}`;
 
@@ -157,7 +157,7 @@ export const useVerseStore = defineStore(
       key: string,
       endpoint: string,
       baseURL: string,
-      queryParams: object
+      queryParams: object,
     ): Promise<VerseResponseType | void> {
       return await $fetch(endpoint, {
         method: "GET",
@@ -186,7 +186,7 @@ export const useVerseStore = defineStore(
   },
   {
     persist: {
-      storage: persistedState.localStorage,
+      storage: piniaPluginPersistedstate.localStorage(),
     },
-  }
+  },
 );

@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "@nuxtjs/google-fonts",
     "@pinia/nuxt",
-    "@pinia-plugin-persistedstate/nuxt",
+    "pinia-plugin-persistedstate/nuxt",
   ],
 
   plugins: ["~/plugins/vue-countdown"],
@@ -55,4 +55,6 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  compatibilityDate: "2025-02-19",
 });
